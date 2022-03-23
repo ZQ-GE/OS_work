@@ -18,6 +18,9 @@ mysys: mysys.c
 sh1: sh1.c
 	cc -o sh1 sh1.c
 
+sh2: sh2.c
+	cc -o sh2 sh2.c
+
 #addpath:
 #	export PATH="$$PATH:/home/hadoop/test-system/job3"
 
