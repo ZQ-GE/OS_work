@@ -60,7 +60,7 @@ void mysys(char *command)
 	// char *copy_command = (char *)malloc(100);
 	// strcpy(copy_command, command);
 	
-	//从标准输入读入的command带有'\0',不需要再进行strcpy（）
+	//从标准输入读入的command不是字符常量，不需要再进行strcpy（）
 	//
 	// puts(copy_command);
 	

@@ -21,7 +21,7 @@ void mysys(char *command)
 	
 	char s[2] = " ";
 	int i = 0;
-	//main（）样例中，直接将具体字符串传入函数，会导致command缺少 ，需要调用strcpy（）
+	//main（）样例中，直接将字符常量传入函数，会导致command是一个字符常量，需要调用strcpy（）
 	char *copy_command = (char *)malloc(100);
 	strcpy(copy_command, command);
 	
