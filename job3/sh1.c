@@ -7,7 +7,7 @@
 
 
 
-int build_in(char *command)
+int build_in(char *command) // building in
 {
 	// exit	
 	if(strcmp(command, "exit") == 0)
@@ -41,7 +41,7 @@ int build_in(char *command)
 	return 0;
 }
 
-
+///////////////////////////////////////////////////////////////////
 void mysys(char *command)
 {
     //实现该函数，该函数执行一条命令，并等待该命令执行结束
