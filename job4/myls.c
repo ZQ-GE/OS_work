@@ -47,7 +47,9 @@ int main(int argc, char *argv[])
 	while(1)
 	{
 		struct dirent *read = readdir(dir);
-		if(read != NULL)
+		if(read == NULL)
+			break;
+		else if(strcmp(read->d_name, ".") != 0 && strcmp(read->d_name, "..") != 0)
 		{
 			//if(read->d_type == DT_DIR || read->d_type == DT_RGB)
 			//{	
@@ -57,6 +59,7 @@ int main(int argc, char *argv[])
 			//}
 		}
 		else
-			break;
+			continue;
+			
 	}
 }
