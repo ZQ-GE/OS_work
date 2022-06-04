@@ -12,8 +12,7 @@ int main(int argc, char *argv[])
 			printf("NULL\n");
 		else 
 			printf("%s, %d\n",argv[i],i);
-	}*/
-	
+	}*/	
 	error = execvp("echo", argv);
 	if(error < 0)
 		printf("error\n");

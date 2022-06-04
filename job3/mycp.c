@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
 	*/
 	//
 	//
-	
 	int fopen = open(argv[1],O_RDONLY);
 	if( fopen < 0)
 	{
@@ -32,29 +31,23 @@ int main(int argc, char *argv[])
         } 
         // creat file success
         //
-	
-
 	int fread = 0;
 	int fwrite = 0;
 	char buf[100];
 	int offset = 50;
-	
-	//printf("%d\n", fopen);
-	 
+
+	//printf("%d\n", fopen); 
 	fread = read(fopen, buf, offset);
 	if(fread < 0)
 	 {
 	 	puts("can't read the file");
 		exit(101);
 	 }
-
 	//printf("%d\n", fread);
-	 
 	while(fread != 0)
 	{
 		//puts(print);
 		//print[fread-1] = '\0';
-		
 		//puts(print);
 		write(1, buf, fread);
 		fwrite = write(fcreat, buf, fread);
@@ -63,17 +56,13 @@ int main(int argc, char *argv[])
               		puts("can't write the file");
                 	exit(102);
         	}
-	
 		//printf("%d\n",fopen);
 		//printf("%d\n",fread);
 		lseek(fcreat, 0, SEEK_CUR);
 		lseek(fopen, 0, SEEK_CUR);
 		fread = read(fopen, buf, offset);
-		
 		//printf("%d\n",fopen);
 		//printf("%d\n",fread);
 	}
-
 	return 0;
-
 }

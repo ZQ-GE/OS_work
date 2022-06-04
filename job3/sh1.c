@@ -15,7 +15,6 @@ int build_in(char *command) // building in
 		//puts("exit success");
 		exit(2);
 	}
-
 	// pwd
 	// exec can also do it, but may have some problems
 	if(strcmp(command, "pwd") == 0)
@@ -26,7 +25,6 @@ int build_in(char *command) // building in
 		puts(buffer);
 		return 1;
         }
-
 	// cd
 	if(command[0] == 'c' && command[1] == 'd' && command[2] == ' ')
 	{
@@ -36,8 +34,6 @@ int build_in(char *command) // building in
 		chdir(path);
 		return  1;
 	}	
-
-
 	return 0;
 }
 
@@ -52,9 +48,7 @@ void mysys(char *command)
 	}
 	
 	char *argvt[10];
-
 	char *token;
-	
 	char s[2] = " ";
 	int i = 0;
 	// char *copy_command = (char *)malloc(100);
@@ -66,8 +60,6 @@ void mysys(char *command)
 	
 	//// split
 	token = strtok(command, s);
-	
-	
 	while( token != NULL ) 
 	{
       		argvt[i] = token;

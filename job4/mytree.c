@@ -30,7 +30,6 @@
 
               DT_UNKNOWN  The file type could not be determined.
 */
-
 void tree(char *path,int n)
 {
 	DIR *dir = opendir(path);
@@ -61,6 +60,7 @@ void tree(char *path,int n)
 		else
 			continue;
 	}
+	closedir(path);
 }
 
 int main(int argc, char *argv[])

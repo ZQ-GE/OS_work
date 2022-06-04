@@ -14,29 +14,21 @@ void mysys(char *command)
 		puts("command error1");
 		exit(1);
 	}
-	
 	char *argvt[10];
-
-	char *token;
-	
+	char *token;	
 	char s[2] = " ";
 	int i = 0;
 	//main（）样例中，直接将字符常量传入函数，会导致command是一个字符常量，需要调用strcpy（）
 	char *copy_command = (char *)malloc(100);
 	strcpy(copy_command, command);
-	
 	// puts(copy_command);
-	
 	token = strtok(copy_command, s);
-	
 	
 	while( token != NULL ) 
 	{
       		argvt[i] = token;
-			
 		// puts(token);
 		i++;
-
       		token = strtok(NULL, s);
    	}
 	
@@ -46,8 +38,6 @@ void mysys(char *command)
 	
 	if(pid == 0)
 	{
-		
-
 		int error = execvp(argvt[0], argvt);
 		// if(error < 0)
 		//	puts("-------1");
@@ -72,7 +62,6 @@ void mysys(char *command)
 			//exit(1);
 		}
 	}
-		
 }
 
 int main()
