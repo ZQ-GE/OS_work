@@ -15,21 +15,10 @@ typedef struct task{
 	char string[128];
 } Task;
 
-typedef struct{
-	Task T;
-	//struct Tasknode *pre;
-	struct Tasknode *next;
-	int status;
-}Tasknode;
+Task tq[MAX];
+int in,out;
 
-typedef struct{
-	Tasknode *head;
-	Tasknode *pCurnode;
-	Tasknode *tail;
-	int length;
-}TaskQueue;
-
-///////////////////////
+/////////////////////// define sema_t
 typedef struct {
         int value;
         pthread_mutex_t mutex;
@@ -66,74 +55,41 @@ sema_t smutex;
 sema_t empty_smutex;
 sema_t full_smutex;
 
-TaskQueue* tq;
-
-Tasknode *init_tnode( char *path, char *string, int is_end)
+void init_node(Task *node, char *path, char *string, int is_end)
 {
-	Tasknode *node = (Tasknode *)malloc(sizeof(Tasknode));
-	//node->pre = NULL;
-	node->next = NULL;
-	node->status = 1;
-	node->T.is_end = is_end;
-	strcpy(node->T.path,path);
-	strcpy(node->T.string,string);
-	return node;
+	node->is_end = is_end;
+	strcpy(node->string,string);
+	strcpy(node->path,path);
 }
 
-int init_q(TaskQueue *Q)
-{
-	Q->head = (Tasknode *)malloc(sizeof(Tasknode));
-	//Q->head->pre = NULL;
-	Q->head->next = NULL;
-	Q->head->status = -1;
-	Q->pCurnode = Q->head;
-	Q->tail = NULL;
-	Q->length = 0;
-
-	return 0;
-}
-
-int add_q(TaskQueue *Q, Tasknode *node)
+int add_q(Task *node)
 {
 	sema_wait(&empty_smutex);
 	sema_wait(&smutex);
-
-	Q->pCurnode->next = node;
-	//node->pre = Q->pCurnode;
-	Q->pCurnode = node;
-	Q->length += 1;
-	Q->tail = Q->pCurnode;
 	
-	sema_signal(&full_smutex);
+	init_node(&tq[in], node->path, node->string, node->is_end);
+	in = (in+1)%MAX;
+	
 	sema_signal(&smutex);
+	sema_signal(&full_smutex);
 	return 0;
 }
 
-int get_q(TaskQueue *Q, Tasknode *node)
+
+int get_q(Task *node)
 {
 	sema_wait(&full_smutex);
 	sema_wait(&smutex);
 
-	node = Q->head->next;
-	Q->head->next = node->next;
-	//node->next->pre = Q->head;
-	Q->length = 1;
-	if(Q->length == 0)
-		Q->pCurnode = Q->head;
-	Q->tail = Q->pCurnode;
+	init_node(node, tq[out].path, tq[out].string, tq[out].is_end);
+	out = (out+1)%MAX;
 	
-	sema_signal(&empty_smutex);
 	sema_signal(&smutex);
+	sema_signal(&empty_smutex);
+	
 	return 1;
 }
 
-int j_empty(TaskQueue *Q)
-{
-	if(Q->length == 0)
-		return 1;
-	else
-		return 0;
-}
 
 ////
 
@@ -159,12 +115,12 @@ void find_dir(char* path, char* target)
 	DIR* dir = opendir(path);
 	struct dirent* entry;
 	while ( entry = readdir(dir) ) {
-		char cats[101] = {0};
+		char cats[256] = {0};
 		strcpy(cats, path);
 		cats[strlen(path)] = '/';
 		cats[strlen(path)+1] = '\0';
 		strcat(cats, entry->d_name);
-
+		
 		if( strcmp(entry->d_name, ".") == 0)
 			continue;
 
@@ -176,8 +132,9 @@ void find_dir(char* path, char* target)
 		}
 		
 		if( entry->d_type == DT_REG) {
-			Tasknode *node_new = init_tnode(path,target,0);
-			add_q(tq,node_new);
+			Task node;
+			init_node(&node, cats, target, 0);
+			add_q(&node);
 		}
 	}
 	closedir(dir);
@@ -190,16 +147,15 @@ void* worker_entry(void* arg)
 	while (1) {
 		struct task task;
 		//从任务队列中获取一个任务 task;
-		Tasknode *node;
-		get_q(tq,node);
-		task.is_end = node->T.is_end;
-		strcpy(task.path, node->T.path);
-		strcpy(task.string, node->T.string);
+		
+		get_q(&task);
 		if (task.is_end)
 			break;
 		//执行该任务;
+		//puts(task.path);
+		//puts(task.string);
 		find_file(task.path, task.string);
-		free(node);
+		//free(node);
 	}	
 
 }
@@ -222,10 +178,12 @@ int main(int argc, char* argv[])
 		find_file(path, string);
 		return 0;
 	}
-	init_q(tq);	
+	in = 0;
+	out = 0;
 	sema_init(&smutex,1);
-	sema_init(&empty_smutex, MAX);
+	sema_init(&empty_smutex, MAX-1);
 	sema_init(&full_smutex, 0);
+	
 	/*1. 创建一个任务队列;
 	- 初始化时，任务队列为空
 	2. 创建 WORKER_NUMBER 个子线程;
@@ -243,13 +201,14 @@ int main(int argc, char* argv[])
 	
 	for(int i=0; i<WORKER_NUM; i++)
 	{
-		pthread_create(workers_tid+i, NULL, worker_entry, NULL);
+		pthread_create(&workers_tid[i], NULL, worker_entry, NULL);
 	}
 	find_dir(path, string);
 	for(int i = 0; i < WORKER_NUM;i++)
 	{
-		Tasknode * node_end = init_tnode("end","end",1);               
-		add_q(tq,node_end);	
+		Task node_end;
+		init_node(&node_end,"end","end",1);               
+		add_q(&node_end);	
 	}
 
 	for(int i=0; i<WORKER_NUM; i++)

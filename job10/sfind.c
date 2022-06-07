@@ -50,13 +50,14 @@ void find_dir(char* path, char* target)
 
 int main(int argc, char* argv[])
 {
-	if(argc != 3) {
+	
+	if(argc != 3 ) { //在vscode调试时进行了更改，在linux下，改为3
 		puts("Usage: sfind file string");
 		return 0;
 	}
 
-	char* path = argv[1];
-	char* string = argv[2];
+	char* path = argv[1]; //改为1
+	char* string = argv[2];//改为2
 	
 	        struct stat info;
         stat(path, &info);

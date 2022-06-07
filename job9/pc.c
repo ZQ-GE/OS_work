@@ -120,11 +120,14 @@ void *producer(void *arg)
 	{
 		sema_wait(&empty_smutex1);
 		sema_wait(&smutex1);
+		
 		iteam = 'a'+i;
 		put_iteam1(iteam);
 		printf("%c\n",iteam);
-		sema_signal(&full_smutex1);
+		
 		sema_signal(&smutex1);
+		sema_signal(&full_smutex1);
+		
 	
 	}
 	return NULL;
@@ -144,16 +147,18 @@ void *caculater(void *arg)
 		upper_iteam = low_iteam + 'A' - 'a';
 		printf("%c:%c\n",low_iteam, upper_iteam);
 		
-		sema_signal(&empty_smutex1);
 		sema_signal(&smutex1);
+		sema_signal(&empty_smutex1);
+		
 		//////////////	
 		sema_wait(&empty_smutex2);
 		sema_wait(&smutex2);
 		
 		put_iteam2(upper_iteam);
 		
-		sema_signal(&full_smutex2);
 		sema_signal(&smutex2);
+		sema_signal(&full_smutex2);
+		
 
 	}
 	return NULL;
@@ -172,8 +177,9 @@ void *consumer(void *arg)
 		iteam = get_iteam2();
 		printf("%c\n",iteam);
 		
-		sema_signal(&empty_smutex2);
 		sema_signal(&smutex2);
+		sema_signal(&empty_smutex2);
+		
 	}
 	return NULL;
 }
@@ -184,9 +190,9 @@ int main()
 	pthread_t prod_tid, cacu_tid,cons_tid;
 
 	sema_init(&smutex1,1);
-	sema_init(&smutex2,2);
-	sema_init(&empty_smutex1,N);
-	sema_init(&empty_smutex2,N);
+	sema_init(&smutex2,1);
+	sema_init(&empty_smutex1,N-1);
+	sema_init(&empty_smutex2,N-1);
 	sema_init(&full_smutex1,0);
 	sema_init(&full_smutex2,0);
 	
