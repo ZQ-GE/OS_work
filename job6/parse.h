@@ -7,9 +7,10 @@ enum {
 };
 
 #define MAX_CHILD 10
+#define MAX_LENGTH 30
 typedef struct tree_tl{
     int type;
-    char *token;
+    char token[MAX_LENGTH];
     int child_count;
     struct tree_tl *child_vector[MAX_CHILD];
 } tree_t;

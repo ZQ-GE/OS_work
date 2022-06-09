@@ -56,8 +56,8 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-	char* path = argv[1]; //改为1
-	char* string = argv[2];//改为2
+	char* path = argv[1];   //改为1
+	char* string = argv[2]; //改为2
 	
 	        struct stat info;
         stat(path, &info);

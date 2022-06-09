@@ -189,6 +189,10 @@ int main()
 {
 	pthread_t prod_tid, cacu_tid,cons_tid;
 
+	in1 = 0;
+	in2 = 0;
+	out1 = 0;
+	out2 = 0;
 	sema_init(&smutex1,1);
 	sema_init(&smutex2,1);
 	sema_init(&empty_smutex1,N-1);

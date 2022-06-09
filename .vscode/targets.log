@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun  7 22:11:05 2022
+# Make data base, printed on Thu Jun  9 14:01:46 2022
 
 # Variables
 
@@ -67,7 +67,7 @@ XDG_RUNTIME_DIR = /run/user/1001
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1001/vscode-ipc-e4a7aae4-59f2-4052-a911-facc3c8c9e13.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1001/vscode-ipc-73816dbc-e897-43e9-af66-f12d27a9bca7.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -93,7 +93,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = hadoop
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 +F = $(notdir $+)
 # environment
@@ -229,6 +229,6 @@ GNUmakefile:
 # strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
-# Finished Make data base on Tue Jun  7 22:11:05 2022
+# Finished Make data base on Thu Jun  9 14:01:46 2022
 
  

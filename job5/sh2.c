@@ -16,7 +16,7 @@ int build_in(char *command) // building in
 		//puts("exit success");
 		exit(2);
 	}
-
+	
 	// pwd
 	// exec can also do it, but may have some problems
 	if(strcmp(command, "pwd") == 0)
@@ -39,6 +39,7 @@ int build_in(char *command) // building in
 	}	
 	return 0;
 }
+
 int split(char *command, char *argvt[])
 {
 	//实现该函数，该函数执行一条命令，并等待该命令执行结束
@@ -54,9 +55,7 @@ int split(char *command, char *argvt[])
         int i = 0;
         // char *copy_command = (char *)malloc(100);
         // strcpy(copy_command, command);
-        
         //从标准输入读入的command不是字符常量，不需要再进行strcpy（）
-        //
         // puts(copy_command);
         
         //// split
@@ -136,7 +135,7 @@ void mysys(char *command)
         	                {
                 	                filename3[j] = argvt[i][j+2];
                         	}
-                        	filename1[length-2] = '\0';
+                        	filename3[length-2] = '\0';
                         	tag3 = 1;
 			}
 			else
@@ -146,7 +145,7 @@ void mysys(char *command)
                         	{
                                 	filename2[j] = argvt[i][j+1];
                         	}
-                        	filename1[length-1] = '\0';
+                        	filename2[length-1] = '\0';
 				tag2 = 1;
 			}
 		}

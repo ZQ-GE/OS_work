@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/wait.h>
-#include"parse.h"
 #include"exec.h"
 
 
@@ -34,12 +33,33 @@ int split(char *command, char *argvt[])
 	return i;
 }
 
+void test()
+{
+    char command[50] = "echo a";
+    while(1)
+	{
+		write(1,"> ",2);
+		//gets(command);
+		char *find;
+		find = strchr(command, '\n');          //查找换行符
+		if(find)                            //如果find不为空指针
+    			*find = '\0';
+		//split command
+		char **argvt = (char**)malloc(128*sizeof(char*));;
+	    int n = split(command, argvt);
+        tree_t *tree = tree_build(argvt, 0, n);
+        print_t(tree, 0);
+        break;
+    }
+}
+
 int main()
 {
 	int tag = 1;
 	char buf[2]="> ";
 	char command[50];
-
+    /*if(1)
+        test();*/
 	while(tag)
 	{
 		write(1,buf,2);
@@ -53,7 +73,8 @@ int main()
 		char **argvt = (char**)malloc(128*sizeof(char*));;
 	    int n = split(command, argvt);
         tree_t *tree = tree_build(argvt, 0, n);
-        print_t(tree, 0);
+        //print_t(tree, 0);
+        execute(tree);
 		/*int flag = build_in(command);
 		if(flag == 0)
 			mysys(command);*/

@@ -146,6 +146,11 @@ void *consumer(void *arg)
 int main()
 {
 	pthread_t prod_tid, cacu_tid,cons_tid;
+	
+	in1 = 0;
+	in2 = 0;
+	out1 = 0;
+	out2 = 0;
 	pthread_mutex_init(&mutex1,NULL);
 	pthread_mutex_init(&mutex2,NULL);
 	pthread_cond_init(&wait_empty_buffer1,NULL);
