@@ -70,13 +70,12 @@ int main()
 		if(find)                            //如果find不为空指针
     			*find = '\0';
 		//split command
-		char **argvt = (char**)malloc(128*sizeof(char*));;
+		char **argvt = (char**)malloc(128*sizeof(char*));
 	    int n = split(command, argvt);
         tree_t *tree = tree_build(argvt, 0, n);
-        //print_t(tree, 0);
-        execute(tree);
-		/*int flag = build_in(command);
-		if(flag == 0)
-			mysys(command);*/
+        print_t(tree, 0);
+        
+        exec_wrapper(tree);
+
 	}
 }

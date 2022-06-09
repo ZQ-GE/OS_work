@@ -35,6 +35,7 @@ tree_t *tree_build(char **argvt, int start, int n)
     tree_init(node_redirict_out);*/
     
     node_basic->type = TREE_BASIC;
+    node_basic->child_count = 0;
     node_redirict_in->type = TREE_REDIRICT;
     node_redirict_in->child_count = 3;
     node_redirict_out->type = TREE_REDIRICT;
