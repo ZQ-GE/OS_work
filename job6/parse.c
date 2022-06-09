@@ -125,7 +125,15 @@ tree_t *tree_build(char **argvt, int start, int n)
     if(tag_pipe)
     {
         node_pipe->child_vector[0] = temp;
-        temp = node_pipe;
+        if (node_pipe->child_vector[1]->type == TREE_PIPE)
+        {
+            tree_t *right = node_pipe->child_vector[1];
+            node_pipe->child_vector[1] = right->child_vector[0];
+            right->child_vector[0] = node_pipe;
+            temp = right;
+        }
+        else
+            temp = node_pipe;
     }
 
     if(tag_back)
