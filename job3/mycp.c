@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 		printf("error\n");
 	*/
 	//
-	//
 	int fopen = open(argv[1],O_RDONLY);
 	if( fopen < 0)
 	{
@@ -49,7 +48,7 @@ int main(int argc, char *argv[])
 		//puts(print);
 		//print[fread-1] = '\0';
 		//puts(print);
-		write(1, buf, fread);
+		//write(1, buf, fread);
 		fwrite = write(fcreat, buf, fread);
        		if(fwrite < 0)
          	{
@@ -64,5 +63,7 @@ int main(int argc, char *argv[])
 		//printf("%d\n",fopen);
 		//printf("%d\n",fread);
 	}
+	close(fread);
+	close(fwrite);
 	return 0;
 }

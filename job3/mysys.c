@@ -23,12 +23,11 @@ void mysys(char *command)
 	strcpy(copy_command, command);
 	// puts(copy_command);
 	token = strtok(copy_command, s);
-	
 	while( token != NULL ) 
 	{
       		argvt[i] = token;
 		// puts(token);
-		i++;
+			i++;
       		token = strtok(NULL, s);
    	}
 	

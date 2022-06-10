@@ -40,7 +40,6 @@ int main(int argc, char *argv[])
 		//printf("%d\n",fopen);
 		//printf("%d\n",fread);
 	}
-
+	close(fread);
 	return 0;
-
 }

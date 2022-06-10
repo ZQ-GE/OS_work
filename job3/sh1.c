@@ -76,8 +76,7 @@ void mysys(char *command)
 	
 	if(pid == 0)
 	{
-		
-
+		//execlp("sh", "sh", "-c", command, NULL);
 		int error = execvp(argvt[0], argvt);
 		// if(error < 0)
 		//	puts("-------1");
