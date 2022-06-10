@@ -60,7 +60,7 @@ void tree(char *path,int n)
 		else
 			continue;
 	}
-	closedir(path);
+	closedir(dir);
 }
 
 int main(int argc, char *argv[])
@@ -81,5 +81,4 @@ int main(int argc, char *argv[])
 	}
 	write(1,"\n",1);
 	tree(path,4);
-
 }
