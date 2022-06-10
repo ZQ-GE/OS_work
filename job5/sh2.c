@@ -40,6 +40,7 @@ int build_in(char *command) // building in
 	return 0;
 }
 
+//split()
 int split(char *command, char *argvt[])
 {
 	//实现该函数，该函数执行一条命令，并等待该命令执行结束
@@ -74,36 +75,6 @@ int split(char *command, char *argvt[])
 ///////////////////////////////////////////////////////////////////
 void mysys(char *command)
 {
-    //实现该函数，该函数执行一条命令，并等待该命令执行结束
-	/*if(command == NULL)
-	{
-		puts("command error1");
-		exit(1);
-	}
-	//存储分词后的字符串数组
-	char *argvt[10];
-	char *token;
-	char s[2] = " ";
-	int i = 0;
-	// char *copy_command = (char *)malloc(100);
-	// strcpy(copy_command, command);
-	
-	//从标准输入读入的command不是字符常量，不需要再进行strcpy（）
-	//
-	// puts(copy_command);
-	
-	//// split
-	token = strtok(command, s);
-	while( token != NULL ) 
-	{
-      		argvt[i] = token;
-		// puts(token);
-		i++;
-      		token = strtok(NULL, s);
-   	}
-	
-	argvt[i] = NULL;
-	*/
 	char **argvt = (char**)malloc(128*sizeof(char*));;
 	int n = split(command, argvt);
 	char **argvt_new= (char**)malloc(128*sizeof(char*));
@@ -168,6 +139,7 @@ void mysys(char *command)
 			puts(filename1);*/
 			fd1 = open(filename1, O_RDONLY, 0777);
 			dup2(fd1, 0);
+			close(fd1);
 		}
 		if(tag2)
 		{
@@ -175,6 +147,7 @@ void mysys(char *command)
 			puts(filename2);*/
 			fd2 = open(filename2,O_CREAT|O_RDWR|O_TRUNC, 0777);
 			dup2(fd2, 1);
+			close(fd2);
 		}
 		else if(tag3)
 		{
@@ -182,6 +155,7 @@ void mysys(char *command)
 			puts(filename3);*/
 			fd2 = open(filename3,O_RDWR|O_APPEND, 0777);
 			dup2(fd2, 1);
+			close(fd2);
 		}	
 		
 		int error = execvp(argvt_new[0], argvt_new);
