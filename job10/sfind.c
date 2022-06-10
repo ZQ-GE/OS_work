@@ -26,8 +26,7 @@ void find_dir(char* path, char* target)
 	while ( entry = readdir(dir) ) {
 		char cats[101] = {0};
 		strcpy(cats, path);
-		cats[strlen(path)] = '/';
-		cats[strlen(path)+1] = '\0';
+		strcat(cats, "/");
 		strcat(cats, entry->d_name);
 
 		if( strcmp(entry->d_name, ".") == 0)

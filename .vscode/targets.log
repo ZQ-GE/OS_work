@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun  9 22:53:27 2022
+# Make data base, printed on Fri Jun 10 16:12:45 2022
 
 # Variables
 
@@ -43,7 +43,7 @@ JRE_HOME = /home/hadoop/app/jdk/jre
 # environment
 VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{}}
 # environment
-_ = /home/hadoop/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/node
+_ = /home/hadoop/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/node
 # makefile
 MAKEFILE_LIST := 
 # 'override' directive
@@ -59,15 +59,15 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/hadoop
 # environment
-SSH_CONNECTION = 192.168.56.1 61285 192.168.56.101 22
+SSH_CONNECTION = 192.168.56.1 60706 192.168.56.101 22
 # environment
-PATH = /home/hadoop/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/bin:/home/thousfeet/app/hadoop-3.0.0/bin:/home/thousfeet/app/hadoop-3.0.0/sbin:/home/hadoop/app/jdk/bin:/home/hadoop/app/jdk/jre/bin:/home/hadoop/app/jdk/bin:/home/hadoop/app/jdk/jre/bin:/app/hadoop/bin:/app/hadoop/sbin
+PATH = /home/hadoop/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/bin:/home/thousfeet/app/hadoop-3.0.0/bin:/home/thousfeet/app/hadoop-3.0.0/sbin:/home/hadoop/app/jdk/bin:/home/hadoop/app/jdk/jre/bin:/home/hadoop/app/jdk/bin:/home/hadoop/app/jdk/jre/bin:/app/hadoop/bin:/app/hadoop/sbin
 # environment
 XDG_RUNTIME_DIR = /run/user/1001
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1001/vscode-ipc-f29fc63c-ae90-4516-8c53-98e512f88e63.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1001/vscode-ipc-30fe3538-ef61-40bc-9af1-97147859f245.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -122,6 +122,8 @@ CLASSPATH = .::/home/hadoop/app/jdk/lib:/home/hadoop/app/jdk/jre/lib
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
+# environment
+OLDPWD = /home/hadoop/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
 # default
 .VARIABLES := 
 # automatic
@@ -133,11 +135,11 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 192.168.56.1 61285 22
+SSH_CLIENT = 192.168.56.1 60706 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-BROWSER = /home/hadoop/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/helpers/browser.sh
+BROWSER = /home/hadoop/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bin/helpers/browser.sh
 # environment
 VSCODE_HANDLES_SIGPIPE = true
 # default
@@ -163,7 +165,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 MOTD_SHOWN = pam
 # variable set hash-table stats:
-# Load=75/1024=7%, Rehash=0, Collisions=9/97=9%
+# Load=76/1024=7%, Rehash=0, Collisions=9/98=9%
 
 # Pattern-specific Variable Values
 
@@ -229,6 +231,6 @@ GNUmakefile:
 # strcache performance: lookups = 26 / hit rate = 11%
 # hash-table stats:
 # Load=23/8192=0%, Rehash=0, Collisions=1/26=4%
-# Finished Make data base on Thu Jun  9 22:53:27 2022
+# Finished Make data base on Fri Jun 10 16:12:45 2022
 
  
