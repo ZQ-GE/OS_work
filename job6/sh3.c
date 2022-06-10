@@ -35,7 +35,7 @@ int split(char *command, char *argvt[])
 
 void test()
 {
-    char command[50] = "echo a";
+    char command[50] = "echo a | grep a | wc -c &";
     while(1)
 	{
 		write(1,"> ",2);

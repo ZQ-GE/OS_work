@@ -135,6 +135,7 @@ void exec_wrapper(tree_t *tree)
     if(pid <= 0)
     {
         execute(tree);
+        exit(1);
 
     }   
     else
