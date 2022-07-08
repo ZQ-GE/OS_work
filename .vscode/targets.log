@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 10 16:12:45 2022
+# Make data base, printed on Fri Jul  8 15:36:54 2022
 
 # Variables
 
@@ -41,9 +41,9 @@ SHELL = /bin/sh
 # environment
 JRE_HOME = /home/hadoop/app/jdk/jre
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{}}
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"4d12339779e8282869a6d44b7af3df1e.zh-cn","_translationsConfigFile":"/home/hadoop/.vscode-server/data/clp/4d12339779e8282869a6d44b7af3df1e.zh-cn/tcf.json","_cacheRoot":"/home/hadoop/.vscode-server/data/clp/4d12339779e8282869a6d44b7af3df1e.zh-cn","_resolvedLanguagePackCoreLocation":"/home/hadoop/.vscode-server/data/clp/4d12339779e8282869a6d44b7af3df1e.zh-cn/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/home/hadoop/.vscode-server/data/clp/4d12339779e8282869a6d44b7af3df1e.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
-_ = /home/hadoop/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/node
+_ = /home/hadoop/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/node
 # makefile
 MAKEFILE_LIST := 
 # 'override' directive
@@ -59,15 +59,15 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/hadoop
 # environment
-SSH_CONNECTION = 192.168.56.1 60706 192.168.56.101 22
+SSH_CONNECTION = 192.168.56.1 54628 192.168.56.101 22
 # environment
-PATH = /home/hadoop/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/bin:/home/thousfeet/app/hadoop-3.0.0/bin:/home/thousfeet/app/hadoop-3.0.0/sbin:/home/hadoop/app/jdk/bin:/home/hadoop/app/jdk/jre/bin:/home/hadoop/app/jdk/bin:/home/hadoop/app/jdk/jre/bin:/app/hadoop/bin:/app/hadoop/sbin
+PATH = /home/hadoop/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/bin:/home/thousfeet/app/hadoop-3.0.0/bin:/home/thousfeet/app/hadoop-3.0.0/sbin:/home/hadoop/app/jdk/bin:/home/hadoop/app/jdk/jre/bin:/home/hadoop/app/jdk/bin:/home/hadoop/app/jdk/jre/bin:/app/hadoop/bin:/app/hadoop/sbin
 # environment
 XDG_RUNTIME_DIR = /run/user/1001
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1001/vscode-ipc-30fe3538-ef61-40bc-9af1-97147859f245.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1001/vscode-ipc-34b63bfc-036f-42c5-a834-4d5198722b3d.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -123,7 +123,7 @@ CLASSPATH = .::/home/hadoop/app/jdk/lib:/home/hadoop/app/jdk/jre/lib
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/hadoop/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
+OLDPWD = /home/hadoop/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630
 # default
 .VARIABLES := 
 # automatic
@@ -135,11 +135,11 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 192.168.56.1 60706 22
+SSH_CLIENT = 192.168.56.1 54628 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-BROWSER = /home/hadoop/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bin/helpers/browser.sh
+BROWSER = /home/hadoop/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/helpers/browser.sh
 # environment
 VSCODE_HANDLES_SIGPIPE = true
 # default
@@ -225,12 +225,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 159 B / avg = 6 B
-# current buf: size = 8162 B / used = 159 B / count = 23 / avg = 6 B
+# strcache buffers: 1 (0) / strings = 23 / storage = 165 B / avg = 7 B
+# current buf: size = 8162 B / used = 165 B / count = 23 / avg = 7 B
 
 # strcache performance: lookups = 26 / hit rate = 11%
 # hash-table stats:
 # Load=23/8192=0%, Rehash=0, Collisions=1/26=4%
-# Finished Make data base on Fri Jun 10 16:12:45 2022
+# Finished Make data base on Fri Jul  8 15:36:54 2022
 
  
